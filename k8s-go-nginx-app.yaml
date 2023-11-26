@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: k8s-go-nginx-app
-        image: dedmarkel/k8s-nginx-app:1.0.0
+        image: dedmarkel/k8s-nginx-app:1.0.1
         resources:
           limits:
             memory: "64Mi"

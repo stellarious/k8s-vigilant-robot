@@ -21,7 +21,7 @@ func main() {
 		ctx.JSON(http.StatusOK, fmt.Sprintf("🅝 Hello from %s! 🅝", name))
 	})
 	r.GET("/nginx", func(ctx *gin.Context) {
-		resp, err := http.Get("http://nginx")
+		resp, err := http.Get("http://nginx.com")
 		if err != nil {
 			ctx.AbortWithStatus(500)
 		}
