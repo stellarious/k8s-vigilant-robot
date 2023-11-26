@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-go-nginx-app
+spec:
+  selector:
+    app: k8s-go-nginx-app
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-go-nginx-app
+spec:
+  selector:
+    matchLabels:
+      app: k8s-go-nginx-app
+  template:
+    metadata:
+      labels:
+        app: k8s-go-nginx-app
+    spec:
+      containers:
+      - name: k8s-go-nginx-app
+        image: dedmarkel/k8s-nginx-app:1.0.0
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080
+  replicas: 4
