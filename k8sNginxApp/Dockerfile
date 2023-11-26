@@ -11,10 +11,10 @@ COPY . .
 RUN go mod tidy
 
 # Builds your app with optional configuration
-RUN go build -o /k8sApp
+RUN go build -o /k8sNginxApp
 
 # Tells Docker which network port your container listens on
 EXPOSE 8080
 
 # Specifies the executable command that runs when the container starts
-CMD [ "/k8sApp" ]
+CMD [ "/k8sNginxApp" ]
